@@ -1,0 +1,48 @@
+# Linux随记
+
+> 记录不知道的linux命令
+
+## cat/more/less命令
+
+`cat` 直接输出文件所有内容  
+`more` 分页输出文件内容，支持空格或者f翻页，b返回上一页，内容读取完成自动退出，会加载整个文件  
+`less` 最常用的读取文件内容命令，支持分页查看，支持`/xx`或者`?xx`搜索，不会一次加载整个文件  
+
+## sort
+
+用来处理输出的排序
+
+```bash
+# exp
+sort -k 1 -r # 按照第一列降序排列
+# 常用参数
+-k pos1[,pos2] # 按照某列排序
+-r # 降序，默认升序
+-f # 忽略大小写
+-u # 去除重复行
+-o # 将结果导出文件
+```
+
+## ps
+
+查看进程和线程情况
+
+```bash
+# exp
+ps -eo pmem,pcpu,rss,vsize,args | sort -k 1 -r # 查看进程占用情况降序
+ps -ef # 展示UID,PID,PPID,C,STIME,TTY,TIME,CMD等信息
+ps -aux # 展示USER,PID,%CPU,%MEM,VSZ,RSS,TTY,STAT,START,TIME,COMMAND等信息
+# 常用参数
+-A/-e # 显示所有(用户)进程
+-f # 格式化输出UID,PID,PPID,C,STIME,TTY,TIME,CMD
+-o # 指定显示哪些信息
+```
+
+## top
+
+实时查看cpu、内存等占用情况
+
+```bash
+# shift+m 按照内存使用情况排序
+# f 编辑显示的列
+```
