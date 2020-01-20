@@ -58,3 +58,16 @@ ps -aux # 展示USER,PID,%CPU,%MEM,VSZ,RSS,TTY,STAT,START,TIME,COMMAND等信息
 # shift+m 按照内存使用情况排序
 # f 编辑显示的列
 ```
+
+## history
+
+查看命令操作记录
+
+```bash
+history # 显示所有记录
+history 10 # 显示最近10条记录
+history | less # 分页查看记录
+history -c # 清空记录
+!! # 执行上次命令
+!xx # 执行上次以xx开头的命令
+```
