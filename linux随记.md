@@ -2,11 +2,23 @@
 
 > 记录不知道的linux命令
 
-## cat/more/less命令
+## cat/more/less/tail命令
 
 `cat` 直接输出文件所有内容  
 `more` 分页输出文件内容，支持空格或者f翻页，b返回上一页，内容读取完成自动退出，会加载整个文件  
 `less` 最常用的读取文件内容命令，支持分页查看，支持`/xx`或者`?xx`搜索，不会一次加载整个文件  
+`tail` 用来实时查看文件变更，默认展示最后10行  
+
+```bash
+tail
+# exp
+tail -f messages.log # 实时查看文件
+tail +20 messages.log # 显示20行到结尾
+# 常用参数
+-f # 实时监测，直至ctrl+c结束
+-n n # 查看最后n行内容
+-c n # 显示n字节内容
+```
 
 ## sort
 
