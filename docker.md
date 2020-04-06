@@ -26,6 +26,12 @@ docker container ls [-la]
 docker kill 容器id
 ```
 
+## 销毁所有容器
+
+```bash
+docker container rm -f $(docker ps -aq)
+```
+
 ## 查看镜像
 
 ```bash
@@ -37,6 +43,18 @@ docker image ls
 
 ```bash
 docker pull imagename
+```
+
+## 删除所有镜像
+
+```bash
+docker rmi -f $(docker images -aq)
+```
+
+## 删除没有tag的镜像
+
+```bash
+docker rmi -f $(docker image ls -a | grep none | awk '{print $3}')
 ```
 
 ## 启动镜像(创建容器)
