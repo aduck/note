@@ -13,6 +13,16 @@ sudo groupadd docker # 添加docker组，脚本会自动创建可忽略
 sudo usermod -aG docker $USER # 将当前用户加入docker组，退出重登（不用加sudo了）
 ```
 
+## 修改源地址
+
+修改或者创建文件/etc/docker/daemon.json，重启docker服务
+
+```json
+{ 
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+```
+
 ## 查看容器
 
 ```bash

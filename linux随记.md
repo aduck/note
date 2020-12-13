@@ -71,3 +71,12 @@ history -c # 清空记录
 !! # 执行上次命令
 !xx # 执行上次以xx开头的命令
 ```
+
+## upgrade忽略更新
+
+执行apt-get upgrade时有时候想要忽略某些包，可以使用`apt-mark`命令，忽略`apt-mark hold package`，恢复`apt-mark unhold package`
+
+```bash
+apt-mark hold package1 package2
+apt-mark unhold package1 package2
+```
