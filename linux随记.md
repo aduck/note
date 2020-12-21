@@ -80,3 +80,35 @@ history -c # 清空记录
 apt-mark hold package1 package2
 apt-mark unhold package1 package2
 ```
+
+## find命令
+
+> find target [params]
+
+```bash
+# 基础
+find / -name demo # 查找根目录下所有名为demo的文件/夹
+find / -name *.txt # 查找txt结尾的文件
+# 按用户/用户组查找
+find / -user root # 查找所有人为root的文件
+find / -group mysql # 查找属于mysql用户组的文件
+find / -user root -o -group mysql # 查找所有人为root或者用户组为mysql的文件
+find / -user root -a -group mysql # 查找所有人为root并且用户组为mysql的文件
+find / -not -user root # 取反
+# 查找层级
+find / -mindepth 1 -maxdepth 2 -name passwd # 查找最小层级为1最大层级为2的名为passwd的文件
+# 按大小查找
+find / -size 20K # 查找大小为20K的文件
+find / -size -20K # 查找小于20K的文件
+find / -size +20K # 查找大于20K的文件
+# 按类型查找
+find / -type f # f普通文件 d目录 b块设备 s套接字 c字符设备 l链接 p管道
+# 按权限查找
+find / -perm 444
+# 按修改时间查找
+find / -ctime 10 # 查找更新距离现在10分钟的文件
+find / -ctime +10 # 查找更新距离现在超过10分钟的文件
+find / -ctime -10 # 查找更新距离现在小于10分钟的文件
+# 查找后续操作
+find / -name test.txt -exec chmod +w {} \; # 查找名为test.txt的文件后添加可写权限
+```
